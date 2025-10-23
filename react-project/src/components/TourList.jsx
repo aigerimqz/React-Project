@@ -13,4 +13,27 @@ export default function TourList(){
         
     }
 
+    // useEffect( () => {
+    //     load();
+    // }, []);
+    
+    
+
+    return (
+        <div className="tour__list">
+            <h2 className="tour__title">Tours</h2>
+            <button onClick={load}>Click</button>
+            
+            {items ? 
+                <ul className="tour__items">
+                {items.map((item) => (
+                    <li key={item.id}>{item.name}</li>
+                    // <p>{item}</p>
+                ))}
+
+                </ul>
+            : <p>No data</p>}
+        </div>   
+    )
+
 }
