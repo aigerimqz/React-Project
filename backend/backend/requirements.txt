@@ -23,7 +23,6 @@ pandas==2.3.2
 pillow==11.1.0
 pycparser==2.22
 pycryptodome==3.21.0
-pygame==2.5.2
 PyJWT==2.9.0
 pyparsing==3.2.1
 PyQt5==5.15.11
