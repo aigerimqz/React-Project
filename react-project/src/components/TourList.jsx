@@ -5,9 +5,13 @@ export default function TourList() {
     const [items, setItems] = useState([]);
     const [filterQuery, setFilterQuery] = useState("");
     const [loading, setLoading] = useState(false);
-    async function load() {
+    async function load(query = "") {
         setLoading(true);
-        const result = await fetch("http://127.0.0.1:8000/api/tours/");
+        let url = "http://127.0.0.1:8000/api/tours/";
+        if(query) {
+            url += `?search=${query}`;
+        }
+        const result = await fetch(url);
         const data = await result.json();
         console.log(data, "fetched data");
         setItems(data);
@@ -18,9 +22,15 @@ export default function TourList() {
         load();
     }, []);
 
-    const filteredItems = items.filter((item) =>
-        item.name.toLowerCase().includes(filterQuery.toLowerCase())
-    );
+    useEffect(() => {
+        const delayDebounce = setTimeout(() => {
+            load(filterQuery);
+        }, 400);
+        return () => clearTimeout(delayDebounce);
+    }, [filterQuery]);
+    // const filteredItems = items.filter((item) =>
+    //     item.name.toLowerCase().includes(filterQuery.toLowerCase())
+    // );
     return (
         <div className="tour__list">
             <h2 className="list__title">Tours</h2>
@@ -35,9 +45,9 @@ export default function TourList() {
             {loading ? (
                 <p className="loading">Loading tours...</p>
             ):
-            filteredItems.length ? (
+            items.length ? (
                 <ul className="tour__items">
-                    {filteredItems.map((item) => (
+                    {items.map((item) => (
                         <TourItem key={item.id} tour={item} />
                     ))}
                 </ul>
