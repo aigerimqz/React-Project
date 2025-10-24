@@ -32,14 +32,17 @@ export default function TourList() {
                 onChange={(e) => setFilterQuery(e.target.value)} />
                 <button className="clear__btn" onClick={() => setFilterQuery("")}>Clear</button>
             </div>
-            {items.length > 0 ? (
+            {loading ? (
+                <p className="loading">Loading tours...</p>
+            ):
+            filteredItems.length ? (
                 <ul className="tour__items">
-                    {items.map((item) => (
+                    {filteredItems.map((item) => (
                         <TourItem key={item.id} tour={item} />
                     ))}
                 </ul>
             ) : (
-                <p>No data</p>
+                <p>No matching tours</p>
             )}
         </div>
     );
