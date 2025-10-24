@@ -17,7 +17,7 @@ export default function TourList() {
 
     return (
         <div className="tour__list">
-            <h2 className="tour__title">Tours</h2>
+            <h2 className="list__title">Tours</h2>
             <button onClick={load}>Click</button>
             {items.length > 0 ? (
                 <ul className="tour__items">
