@@ -11,11 +11,7 @@ export default function Home(){
                         
                     </div>
                     <div className="home__right">
-                        <p className="home__info">Lorem ipsum dolor sit amet consectetur adipisicing 
-                        elit. Molestiae, magni fugit nihil architecto
-                        maiores mollitia id, cum veritatis quam itaque,
-                        eveniet reprehenderit maxime dolore ex corporis 
-                        soluta suscipit placeat ad.</p>
+                        <p className="home__info">Find your next amazing destination with us. We offer different types of tours — from relaxing beach holidays to exciting mountain adventures.</p>
                         <button className="home__btn">Explore</button>
                     </div>
                   

@@ -11,21 +11,21 @@ export default function About(){
                 <div className="about__item">
                     <img src={locationIcon} alt="" />
                     <div className="about__text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi libero, non</p>
+                        <p>Explore stunning destinations around the world.</p>
                         <a href="">More detailed</a>
                     </div>
                 </div>
                 <div className="about__item">
                     <img src={bookingIcon} alt="" />
                     <div className="about__text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi libero, non</p>
+                        <p>Easy booking, instant confirmation.</p>
                         <a href="">More detailed</a>
                     </div>
                 </div>
                 <div className="about__item">
                     <img src={serviceIcon} alt="" />
                     <div className="about__text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi libero, non</p>
+                        <p>Your adventure, perfectly timed.</p>
                         <a href="">More detailed</a>
                     </div>
                 </div>
