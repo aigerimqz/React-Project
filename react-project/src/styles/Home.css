@@ -2,8 +2,8 @@
 .home__block{
     /* margin: 150px auto; */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     color: white;
     
 }
@@ -12,15 +12,28 @@
     font-size: 56px;
     text-align: center;
     /* font-weight: 400; */
+    width: 100%;
     
 }
 
-.home__text{
-    font-size: 16px;
-    
-    text-align: justify;
-    font-weight: 200;
+.home__middle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 0;
 }
+.home__left{
+    padding: 0 50px;
+}
+.home__right{
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .home__info{
     display: flex;
     flex-direction: column;
@@ -28,6 +41,10 @@
     justify-content: center;
     margin-left: 100px;
     width: 70%;
+    font-size: 16px;
+    
+    text-align: justify;
+    font-weight: 200;
 }
 .home__btn{
     color: white;
