@@ -7,9 +7,18 @@ function App() {
 
   return (
     <>
-      <Home></Home>
-      <About></About>
-      <Tours></Tours>
+      <div className="section">
+        <div className="container">
+            <Home></Home>
+        </div>
+            
+      </div>
+        <div className="container">
+            <About></About>
+            <Tours></Tours>
+        </div>
+      
+      
     </>
   )
 }

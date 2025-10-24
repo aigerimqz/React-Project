@@ -1,0 +1,16 @@
+.tour__list {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.tour__title {
+  font-size: 36px;
+}
+
+.tour__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}

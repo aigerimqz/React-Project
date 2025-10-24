@@ -1,5 +1,5 @@
 import Navigation from "../components/Navigation";
-
+import "../styles/Home.css";
 export default function Home(){
     return (
         <>
