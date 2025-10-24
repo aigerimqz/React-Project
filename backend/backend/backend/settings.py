@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-8@%f%j8)ask81rfkx0ti6n3f$_#(=#6n$mb4eb9dhy)_z-(-=j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['react-project-jbmu.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
