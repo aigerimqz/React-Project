@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './layouts/Navbar';
 import TourList from './pages/Tours/TourList';
 import TourDetail from './pages/Tours/TourDetail';
+import Login from './pages/Auth/Login';
+import Signup from './pages/Auth/Signup';
 function App() {
   
 
@@ -17,6 +19,11 @@ function App() {
           <Route path="about" element={<About/>}/>
           <Route path="tours" element={<TourList/>}/>
           <Route path='tours/:id' element={<TourDetail/>}/>
+
+          <Route path='login' element={<Login/>}/>
+          <Route path='signup' element={<Signup/>}/>
+          <Route path='login' element={<Login/>}/>
+
         </Route>
       </Routes>
     </BrowserRouter>

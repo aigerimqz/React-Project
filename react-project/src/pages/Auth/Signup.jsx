@@ -1,23 +1,27 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./Login.css";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import "./Login.css"; 
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 
-export default function Login() {
+export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
+    const handleSignup = async () => {
+        if (password !== confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
         try {
             setError("");
             setLoading(true);
-            await signInWithEmailAndPassword(auth, email, password);
+            await createUserWithEmailAndPassword(auth, email, password);
             navigate("/profile");
         } catch (err) {
             setError(err.message);
@@ -27,10 +31,10 @@ export default function Login() {
 
     return (
         <>
-            <h1 style={{ textAlign: "center" }}>Login</h1>
+            <h1 style={{ textAlign: "center" }}>Sign Up</h1>
 
-            <form className="login__block" onSubmit={handleLogin}>
-                {error && <p className="error">{error}</p>}
+            <form className="login__block">
+                
 
                 <input 
                     className="input input__email"
@@ -49,14 +53,27 @@ export default function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-
-                <button className="login__btn" disabled={loading}>
-                    {loading ? "Loading..." : "Login"}
+                <input 
+                    className="input input__password"
+                    type="password"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                />
+                {error && <p className="error">{error}</p>}
+                <button
+                    type="button"
+                    className="login__btn"
+                    disabled={loading}
+                    onClick={handleSignup}
+                >
+                    {loading ? "Loading..." : "Sign Up"}
                 </button>
 
                 <p>
-                    Don't have an account?{" "}
-                    <Link to="/signup">Sign up</Link>
+                    Already have an account?{" "}
+                    <Link to="/login">Login</Link>
                 </p>
             </form>
         </>

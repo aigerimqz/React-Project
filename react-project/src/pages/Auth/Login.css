@@ -1,0 +1,29 @@
+.login__block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    
+}
+
+.input{
+    background-color: white;
+    padding: 10px 20px;
+    border: 1px solid #999999;
+    border-radius: 30px;
+    font-size: 16px;
+    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.error{
+    color: red;
+}
+a{
+    color: rgb(162, 224, 206);
+    text-decoration: none;
+    transition: 0.3 ms ease-in-out;
+}
+a:hover{
+    text-decoration: underline;
+}
