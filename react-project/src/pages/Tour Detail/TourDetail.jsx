@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getItemById } from "../../services/itemService";
-import "../Tours/TourDetail.css";
+import "../Tour Detail/TourDetail.css";
 export default function TourDetail() {
   const { id } = useParams();
   const navigate = useNavigate();

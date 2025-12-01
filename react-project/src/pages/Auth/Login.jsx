@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { loginUser } from "../../services/authService";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ export default function Login() {
         try {
             setError("");
             setLoading(true);
-            await signInWithEmailAndPassword(auth, email, password);
+            await loginUser(email, password);
             navigate("/profile");
         } catch (err) {
             setError(err.message);

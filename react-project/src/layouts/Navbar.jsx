@@ -1,6 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
 import "../layouts/Navbar.css";
 export default function Navbar() {
+
+
+  
   return (
     <div>
       <nav className="nav__bar">

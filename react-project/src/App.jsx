@@ -1,11 +1,11 @@
 import './App.css'
 import Home from './pages/Home/Home'; 
 import About from './pages/About/About';
-import Tours from './pages/Tours/TourList';
+import Tours from './pages/Tour List/TourList';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './layouts/Navbar';
-import TourList from './pages/Tours/TourList';
-import TourDetail from './pages/Tours/TourDetail';
+import TourList from './pages/Tour List/TourList';
+import TourDetail from './pages/Tour Detail/TourDetail';
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
 import Profile from './pages/Profile/Profile';
