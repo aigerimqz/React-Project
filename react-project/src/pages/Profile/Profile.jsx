@@ -13,7 +13,7 @@ export default function Profile() {
       <p className="profile__email">{user.email}</p>
       <p className="profile__id">{user.uid}</p>
 
-      <button className="login__btn" onClick={logout}>Logout</button>
+      {/* <button className="login__btn" onClick={logout}>Logout</button> */}
     </div>
   );
 }
