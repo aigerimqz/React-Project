@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import TourItem from "./TourItem";
-import "../styles/TourList.css";
+import "./TourList.css";
 export default function TourList() {
     const [items, setItems] = useState([]);
     const [filterQuery, setFilterQuery] = useState("");

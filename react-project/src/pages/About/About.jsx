@@ -1,4 +1,4 @@
-import "../styles/About.css"
+import "./About.css"
 import locationIcon from "../assets/icons/location.png"
 import bookingIcon from "../assets/icons/booking.png"
 import serviceIcon from "../assets/icons/service.png"

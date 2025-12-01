@@ -1,4 +1,4 @@
-import "../styles/TourItem.css"
+import "./TourItem.css"
 export default function TourItem({ tour }) {
   return (
     <div className="tour__card">
