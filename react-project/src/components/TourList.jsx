@@ -7,7 +7,7 @@ export default function TourList() {
     const [loading, setLoading] = useState(false);
     async function load(query = "") {
         setLoading(true);
-        let url = "http://127.0.0.1:8000/api/tours/";
+        let url = "https://react-project-jbmu.onrender.com/api/tours/";
         if(query) {
             url += `?search=${query}`;
         }
