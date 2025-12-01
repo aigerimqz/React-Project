@@ -1,0 +1,50 @@
+.tour__details {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tour__title {
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.tour__img {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+}
+
+.tour__into{
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px 0;
+  padding: 8px 12px;
+  background: #f7f7f7;
+  border-radius: 8px;
+}
+
+.tour__btn {
+  display: block;
+  margin: 25px auto 0;
+  padding: 10px 20px;
+  background: rgb(162, 224, 206);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.tour__btn:hover {
+  background: rgb(61, 237, 187);
+}
