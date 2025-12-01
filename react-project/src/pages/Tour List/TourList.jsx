@@ -1,40 +1,37 @@
 import { useState, useEffect } from "react";
 import TourItem from "./TourItem";
 import "./TourList.css";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { searchItems } from "../../services/itemService";
+import { fetchItems } from "../../features/items/itemsSlice";
 export default function TourList() {
-    const [items, setItems] = useState([]);
-    const [filterQuery, setFilterQuery] = useState("");
-    const [loading, setLoading] = useState(false);
+   
+    const dispatch = useDispatch();
+    const {list, loadingList, errorList} = useSelector(
+        (state) => state.items
+    );
+
     const [params, setParams] = useSearchParams();
     const search = params.get("search") || "";
-
-
-    async function load(query = "") {
-        setLoading(true);
-        let data;
-
-        if(query) {
-            data = await searchItems(query);
-        }else{
-            const res = await fetch("https://react-project-jbmu.onrender.com/api/tours");
-            data = await res.json()
-        }
+    const [filterQuery, setFilterQuery] = useState(search);
     
-        setItems(data || []);
-        setLoading(false);
-    }
+    
+
+
+
 
     useEffect(() => {
-        load(search);
-    }, [search]);
+        dispatch(fetchItems(search));
+    }, [search, dispatch]);
 
 
     function handleSearch(e) {
         const value = e.target.value;
         setFilterQuery(value);
-        setParams({search: value});
+
+        if(value) setParams({ search: value});
+        else setParams();
     }
 
     // useEffect(() => {
@@ -57,10 +54,10 @@ export default function TourList() {
                 onChange={handleSearch} />
                 <button className="clear__btn" onClick={() => {setFilterQuery(""); setParams({});}}>Clear</button>
             </div>
-            {loading ? (
+            {loadingList ? (
                 <p className="loading">Loading tours...</p>
             ):
-            items.length ? (
+            list.length ? (
                 <ul className="tour__items">
                     {items.map((item) => (
                         <TourItem key={item.id} tour={item} />
