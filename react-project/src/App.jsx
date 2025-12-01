@@ -8,11 +8,12 @@ import TourList from './pages/Tours/TourList';
 import TourDetail from './pages/Tours/TourDetail';
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
+import Profile from './pages/Profile/Profile';
 function App() {
   
 
   return (
-    <BrowserRouter>
+   
       <Routes>
         <Route path="/" element={<Navbar/>}>
           <Route index element = {<Home/>}/>
@@ -22,11 +23,11 @@ function App() {
 
           <Route path='login' element={<Login/>}/>
           <Route path='signup' element={<Signup/>}/>
-          <Route path='login' element={<Login/>}/>
+          <Route path='profile' element={<Profile/>}/>
 
         </Route>
       </Routes>
-    </BrowserRouter>
+  
   )
 }
 
