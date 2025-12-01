@@ -2,24 +2,23 @@ import './App.css'
 import Home from './pages/Home/Home'; 
 import About from './pages/About/About';
 import Tours from './pages/Tours/TourList';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './layouts/Navbar';
+import TourList from './pages/Tours/TourList';
 function App() {
   
 
   return (
-    <>
-      <div className="section">
-        <div className="container">
-            <Home></Home>
-        </div>
-            
-      </div>
-        <div className="container">
-            <About></About>
-            <Tours></Tours>
-        </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navbar/>}>
+          <Route index element = {<Home/>}/>
+          <Route path="about" element={<About/>}/>
+          <Route path="tours" element={<TourList/>}/>
       
-      
-    </>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
