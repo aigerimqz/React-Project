@@ -8,7 +8,7 @@ export default function TourList() {
     const [filterQuery, setFilterQuery] = useState("");
     const [loading, setLoading] = useState(false);
     const [params, setParams] = useSearchParams();
-    const q = params.get("q") || "";
+    const search = params.get("search") || "";
 
 
     async function load(query = "") {
@@ -27,14 +27,14 @@ export default function TourList() {
     }
 
     useEffect(() => {
-        load(q);
-    }, [q]);
+        load(search);
+    }, [search]);
 
 
     function handleSearch(e) {
         const value = e.target.value;
         setFilterQuery(value);
-        setParams({q: value});
+        setParams({search: value});
     }
 
     // useEffect(() => {
@@ -54,8 +54,8 @@ export default function TourList() {
                 <input type="text" className="search__input" 
                 placeholder="Search tours..."
                 value={filterQuery}
-                onChange={(e) => setFilterQuery(e.target.value)} />
-                <button className="clear__btn" onClick={() => setFilterQuery("")}>Clear</button>
+                onChange={handleSearch} />
+                <button className="clear__btn" onClick={() => {setFilterQuery(""); setParams({});}}>Clear</button>
             </div>
             {loading ? (
                 <p className="loading">Loading tours...</p>
