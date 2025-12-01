@@ -9,6 +9,7 @@ import TourDetail from './pages/Tours/TourDetail';
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
 import Profile from './pages/Profile/Profile';
+import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   
 
@@ -23,7 +24,7 @@ function App() {
 
           <Route path='login' element={<Login/>}/>
           <Route path='signup' element={<Signup/>}/>
-          <Route path='profile' element={<Profile/>}/>
+          <Route path='profile' element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
 
         </Route>
       </Routes>

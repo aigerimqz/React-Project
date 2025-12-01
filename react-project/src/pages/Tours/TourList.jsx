@@ -49,7 +49,7 @@ export default function TourList() {
     return (
         <div className="tour__list">
             <h2 className="list__title">Tours</h2>
-            <button className="load__btn" onClick={load}>Reload tours</button>
+         
             <div className="search__bar">
                 <input type="text" className="search__input" 
                 placeholder="Search tours..."
