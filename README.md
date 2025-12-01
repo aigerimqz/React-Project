@@ -39,35 +39,9 @@ The project includes a **React frontend** for user interaction and a **Django ba
 
 ### 1️⃣ Backend Setup
 
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate  # for Windows
-source venv/bin/activate  # for Mac/Linux
-pip install -r requirements.txt
-```
-
-Run migrations:
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-Create superuser (for admin panel):
-
-```bash
-python manage.py createsuperuser
-```
-
-Run server:
-
-```bash
-python manage.py runserver
-```
 
 The backend will run at:
-👉 `http://127.0.0.1:8000/`
+👉 `https://react-project-jbmu.onrender.com/`
 
 ---
 
@@ -86,9 +60,10 @@ Frontend runs at:
 
 ## 🔗 API Endpoints
 
-| Method | Endpoint           | Description                    |
-| ------ | ------------------ | ------------------------------ |
-| GET    | `/api/tours/`      | Get all tours                  |
+| Method   | Endpoint           | Description                  |
+| -------- | ------------------ | ---------------------------- |
+| `GET`    | `/api/tours/`      | List all tours               | 
+| `POST`   | `/api/tours/`      | Create a tour *(admin only)* |
 
 
 
@@ -106,7 +81,6 @@ Frontend runs at:
 
 * Add user authentication (login/register)
 * Integrate real booking/payment system
-* Add search and filter for tours
-* Deploy to Render / Vercel / Railway
+* Add showing info for one element
 
 ---
