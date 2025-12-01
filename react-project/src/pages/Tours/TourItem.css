@@ -1,3 +1,6 @@
+.tour__detail{
+  text-decoration: none;
+}
 .tour__card {
     width: 250px;
     background-color: #fff;

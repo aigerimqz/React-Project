@@ -5,6 +5,7 @@ import Tours from './pages/Tours/TourList';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './layouts/Navbar';
 import TourList from './pages/Tours/TourList';
+import TourDetail from './pages/Tours/TourDetail';
 function App() {
   
 
@@ -15,7 +16,7 @@ function App() {
           <Route index element = {<Home/>}/>
           <Route path="about" element={<About/>}/>
           <Route path="tours" element={<TourList/>}/>
-      
+          <Route path='tours/:id' element={<TourDetail/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

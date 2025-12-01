@@ -1,33 +1,48 @@
 import { useState, useEffect } from "react";
 import TourItem from "./TourItem";
 import "./TourList.css";
+import { useSearchParams } from "react-router-dom";
+import { searchItems } from "../../services/itemService";
 export default function TourList() {
     const [items, setItems] = useState([]);
     const [filterQuery, setFilterQuery] = useState("");
     const [loading, setLoading] = useState(false);
+    const [params, setParams] = useSearchParams();
+    const q = params.get("q") || "";
+
+
     async function load(query = "") {
         setLoading(true);
-        let url = "https://react-project-jbmu.onrender.com/api/tours/";
+        let data;
+
         if(query) {
-            url += `?search=${query}`;
+            data = await searchItems(query);
+        }else{
+            const res = await fetch("https://react-project-jbmu.onrender.com/api/tours/");
+            data = await res.json()
         }
-        const result = await fetch(url);
-        const data = await result.json();
-        console.log(data, "fetched data");
-        setItems(data);
+    
+        setItems(data || []);
         setLoading(false);
     }
 
     useEffect(() => {
-        load();
-    }, []);
+        load(q);
+    }, [q]);
 
-    useEffect(() => {
-        const delayDebounce = setTimeout(() => {
-            load(filterQuery);
-        }, 400);
-        return () => clearTimeout(delayDebounce);
-    }, [filterQuery]);
+
+    function handleSearch(e) {
+        const value = e.target.value;
+        setFilterQuery(value);
+        setParams({q: value});
+    }
+
+    // useEffect(() => {
+    //     const delayDebounce = setTimeout(() => {
+    //         load(filterQuery);
+    //     }, 400);
+    //     return () => clearTimeout(delayDebounce);
+    // }, [filterQuery]);
     // const filteredItems = items.filter((item) =>
     //     item.name.toLowerCase().includes(filterQuery.toLowerCase())
     // );
