@@ -18,7 +18,7 @@ export default function TourList() {
         if(query) {
             data = await searchItems(query);
         }else{
-            const res = await fetch("https://react-project-jbmu.onrender.com/api/tours/");
+            const res = await fetch("https://react-project-jbmu.onrender.com/api/tours");
             data = await res.json()
         }
     

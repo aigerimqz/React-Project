@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import "./TourItem.css"
 export default function TourItem({ tour }) {
   return (
-    <Link to={`tours/${tour.id}`} className="tour__detail">
+    <Link to={`/tours/${tour.id}`} className="tour__detail">
       <div className="tour__card">
         <img src={tour.photo} alt={tour.name} className="tour__image" />
         <div className="tour__content">
