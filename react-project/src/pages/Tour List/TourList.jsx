@@ -30,8 +30,7 @@ export default function TourList() {
         const value = e.target.value;
         setFilterQuery(value);
 
-        if(value) setParams({ search: value});
-        else setParams();
+        setParams({ search: value });
     }
 
     // useEffect(() => {
@@ -59,7 +58,7 @@ export default function TourList() {
             ):
             list.length ? (
                 <ul className="tour__items">
-                    {items.map((item) => (
+                    {list.map((item) => (
                         <TourItem key={item.id} tour={item} />
                     ))}
                 </ul>

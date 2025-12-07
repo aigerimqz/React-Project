@@ -42,7 +42,7 @@ const itemsSlice = createSlice({
       })
       .addCase(fetchItems.fulfilled, (state, action) => {
         state.loadingList = false;
-        state.list = action.payload.products || [];
+        state.list = action.payload || [];
       })
       .addCase(fetchItems.rejected, (state, action) => {
         state.loadingList = false;
