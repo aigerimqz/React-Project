@@ -13,4 +13,4 @@ class Tour(models.Model):
     duration = models.IntegerField(help_text="Duration of the tour")
 
     def __str__(self):
-        return f"{self.title} - {self.country}"
+        return f"{self.name} - {self.country}"

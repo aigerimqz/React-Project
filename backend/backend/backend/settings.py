@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from pathlib import Path
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,7 +34,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8@%f%j8)ask81rfkx0ti6n3f$_#(=#6n$mb4eb9dhy)_z-(-=j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['react-project-jbmu.onrender.com', 'localhost', '127.0.0.1']
 
@@ -92,11 +93,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse("postgresql://saiahat_django_render_user:x8Ng8TAo8FIJJMPaaxvdnWaBKaRB3O2S@dpg-d4qqijvpm1nc73bcncg0-a.oregon-postgres.render.com/saiahat_django_render")
 }
+
+# DATABASES["default"] = dj_database_url.parse("postgresql://saiahat_django_render_user:x8Ng8TAo8FIJJMPaaxvdnWaBKaRB3O2S@dpg-d4qqijvpm1nc73bcncg0-a.oregon-postgres.render.com/saiahat_django_render")
+
+# postgresql://saiahat_django_render_user:x8Ng8TAo8FIJJMPaaxvdnWaBKaRB3O2S@dpg-d4qqijvpm1nc73bcncg0-a.oregon-postgres.render.com/saiahat_django_render
 
 
 # Password validation
