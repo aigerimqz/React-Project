@@ -4,19 +4,24 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import "./Login.css"; 
 import { registerUser } from "../../services/authService";
+import { useDispatch, useSelector } from "react-redux";
+import { signup } from "../../features/auth/authSlice";
 
 export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+    
+   
 
   
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const {loading, error} = useSelector(state => state.auth);
 
     const validate = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,15 +47,9 @@ export default function Signup() {
     const handleSignup = async () => {
         if (!validate()) return;
 
-        try {
-            setError("");
-            setLoading(true);
-            await registerUser(email, password);
+        const result = await dispatch(signup({email, password}));
+        if(signup.fulfilled.match(result)){
             navigate("/profile");
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
         }
     };
 
