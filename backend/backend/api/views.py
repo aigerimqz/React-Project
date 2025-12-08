@@ -1,6 +1,7 @@
 from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Tour
+from .pagination import TourPagination
 from .serializers import TourSerializer
 
 
@@ -19,3 +20,5 @@ class TourViewSet(viewsets.ModelViewSet):
 
     search_fields = ['name', 'description']
     ordering_fields = ['price', 'start_date']
+
+    pagination_class = TourPagination
