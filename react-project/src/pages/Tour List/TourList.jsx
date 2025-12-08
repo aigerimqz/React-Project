@@ -9,7 +9,10 @@ import { useDebounce } from "../../hooks/useDebounce";
 export default function TourList() {
    
     const dispatch = useDispatch();
-    const {list, loadingList, errorList} = useSelector(
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pageSize, setPageSize] = useState(5);
+    const {list, loadingList, errorList, count, next, previous} = useSelector(
         (state) => state.items
     );
 
@@ -31,6 +34,10 @@ export default function TourList() {
         if (newFilters.category) cleanFilters.category = newFilters.category;
         if (newFilters.continent) cleanFilters.continent = newFilters.continent;
 
+        cleanFilters.page = currentPage;
+        cleanFilters.page_size = pageSize;
+
+        
         setParams(cleanFilters);
 
     }
@@ -47,8 +54,10 @@ export default function TourList() {
             search: debouncedSearch,
             category: selectedCategory,
             continent: selectedContinent,
+            page: currentPage,
+            page_size: pageSize,
         }));
-    }, [debouncedSearch, selectedCategory, selectedContinent, dispatch]);
+    }, [debouncedSearch, selectedCategory, selectedContinent, currentPage, pageSize, dispatch]);
 
     function handleSearch(e) {
         const value = e.target.value;
@@ -69,6 +78,14 @@ export default function TourList() {
         setParams({});
     }
 
+    function goToPage(newPage){
+        setCurrentPage(newPage);
+
+        const newParams = new URLSearchParams(params);
+        newParams.set("page", newPage);
+        setParams(newParams);
+    }
+
 
     // useEffect(() => {
     //     const delayDebounce = setTimeout(() => {
@@ -86,6 +103,18 @@ export default function TourList() {
 
         <div className="tour__list">
             <h2 className="list__title">Tours</h2>
+
+            <button onClick={() => goToPage(Math.max(currentPage - 1, 1))}
+                disabled={!previous}>
+                Previous
+                </button>
+
+                <button
+                onClick={() => goToPage(currentPage + 1)}disabled={!next}>
+                Next
+            </button>
+
+
          
             <div className="search__bar">
                 <input type="text" className="search__input" 

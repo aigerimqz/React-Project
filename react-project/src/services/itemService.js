@@ -12,7 +12,10 @@ export async function searchItems(filters = {}) {
   if (filters.search) params.append("search", filters.search);
   if (filters.category) params.append("categories__slug", filters.category);
   if (filters.continent) params.append("continent__slug", filters.continent);
+  if (filters.page) params.append("page", filters.page);
+  if (filters.page_size) params.append("page_size", filters.page_size);
 
+  
   const res = await fetch(`${BASE_URL}/?${params.toString()}`);
   return res.json();
 }

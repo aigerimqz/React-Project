@@ -9,17 +9,15 @@ const initialState = {
   errorList: null,
   errorItem: null,
   query: "",
+  count: 0,
+  next: null,
+  previous: null,
 };
 
 export const fetchItems = createAsyncThunk(
   "items/fetchItems",
-  async (query) => {
-    if (query) {
-      return itemsService.searchItems(query);
-    } else {
-      const res = await fetch("https://react-project-jbmu.onrender.com/api/tours");
-      return res.json();
-    }
+  async (params) => {
+    return itemsService.searchItems(params);
   }
 );
 
@@ -42,7 +40,10 @@ const itemsSlice = createSlice({
       })
       .addCase(fetchItems.fulfilled, (state, action) => {
         state.loadingList = false;
-        state.list = action.payload || [];
+        state.list = action.payload.results || [];
+        state.count = action.payload.count || 0;
+        state.next = action.payload.next;
+        state.previous = action.payload.previous;
       })
       .addCase(fetchItems.rejected, (state, action) => {
         state.loadingList = false;
