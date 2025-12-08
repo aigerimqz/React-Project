@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { searchItems } from "../../services/itemService";
 import { fetchItems } from "../../features/items/itemsSlice";
+import { useDebounce } from "../../hooks/useDebounce";
 export default function TourList() {
    
     const dispatch = useDispatch();
@@ -22,9 +23,11 @@ export default function TourList() {
     const [selectedContinent, setSelectedContinent] = useState(continent);
 
 
+    const debouncedSearch = useDebounce(filterQuery, 400);
+
     function updateFilters(newFilters){
         const cleanFilters = {};
-        if (newFilters.search) cleanFilters.search = newFilters.search;
+        if (newFilters.search && newFilters.search.trim() !== "") cleanFilters.search = newFilters.search;
         if (newFilters.category) cleanFilters.category = newFilters.category;
         if (newFilters.continent) cleanFilters.continent = newFilters.continent;
 
@@ -40,8 +43,12 @@ export default function TourList() {
     //     dispatch(fetchItems(search));
     // }, [search, dispatch]);
     useEffect(() => {
-        dispatch(fetchItems({ search, category, continent }));
-    }, [search, category, continent, dispatch]);
+        dispatch(fetchItems({
+            search: debouncedSearch,
+            category: selectedCategory,
+            continent: selectedContinent,
+        }));
+    }, [debouncedSearch, selectedCategory, selectedContinent, dispatch]);
 
     function handleSearch(e) {
         const value = e.target.value;
