@@ -18,6 +18,7 @@ export default function Navbar() {
         <div className="login__bar">
           {user ? (
             <>
+              <Link className="nav__item" to="/favorites">Favorites</Link>
               <Link className="nav__item" to="/profile">Profile</Link>
               <button onClick={logoutUser} className="login__btn">Logout</button>
             </>

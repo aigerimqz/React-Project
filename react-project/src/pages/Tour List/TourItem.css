@@ -1,8 +1,10 @@
 .tour__detail{
   text-decoration: none;
 }
+
 .tour__card {
     width: 250px;
+    min-height: 450px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -14,6 +16,7 @@
 }
 
 .tour__card:hover {
+   
     cursor: pointer;
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -56,5 +59,23 @@
 .tour__price {
     font-size: 16px;
     font-weight: bold;
-    color: #1a73e8;
+    color: #72d8a9;
+}
+
+
+.top__part{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.fav__btn{
+    border: none;
+    background: none;
+    transition: ease-in-out 0.3s transform;
+    width: 50px;
+
+}
+.fav__btn:hover{
+    transform: scale(1.2);
+    cursor: pointer;
 }
