@@ -2,8 +2,6 @@ import { Outlet, Link } from "react-router-dom";
 import "../layouts/Navbar.css";
 import { useAuth } from "../context/AuthContext";
 import { logoutUser } from "../services/authService";
-import ProfilePictureUpdater from "../components/ProfilePictureUpdater";
-import { useTranslation } from "react-i18next";
 import { useI18n } from "../context/I18nContext";
 
 export default function Navbar() {

@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./Profile.css";
-import ProfilePictureUpdater from "../../components/ProfilePictureUpdater";
+import ProfilePictureUpdater from "../../components/ProfilePictureUpdater/ProfilePictureUpdater";
 export default function Profile() {
   const { user, logout } = useAuth();
 

@@ -1,7 +1,7 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { useEffect, useState } from "react";
-
+import "./ProfilePictureUpdater.css"
 export default function ProfilePictureUpdater({ user }) {
   const [avatar, setAvatar] = useState(
     "https://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png"
@@ -67,12 +67,13 @@ export default function ProfilePictureUpdater({ user }) {
           <input
             type="file"
             accept="image/*"
+            className="profile__input"
             onChange={handleFileSelect}
-            style={{ display: "none" }}
+            
           />
         </label>
         {selectedFile && (
-          <button onClick={handleUpload} disabled={loading}>
+          <button className="uploaded__btn" onClick={handleUpload} disabled={loading}>
             {loading ? "Uploading..." : "Upload"}
           </button>
         )}

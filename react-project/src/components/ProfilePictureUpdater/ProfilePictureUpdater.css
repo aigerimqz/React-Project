@@ -1,0 +1,61 @@
+.profile-avatar-updater {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.profile__ava {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgb(162, 224, 206); 
+}
+
+.upload-btn {
+    display: inline-block;
+    background-color: rgb(162, 224, 206);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.upload-btn:hover {
+    background-color: #115e53;
+}
+
+.upload-btn input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.uploaded__btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.uploaded__btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.uploaded__btn:hover:not(:disabled) {
+    background-color: #1d4ed8;
+}
