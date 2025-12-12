@@ -25,7 +25,7 @@ export default function FavoriteList() {
   }, [user, dispatch]);
 
   
-  if (loading) return <Loader></Loader>;
+  if (loading) return <Loader/>;
 
   const resList = user ? list : localList;
 
