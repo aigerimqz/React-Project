@@ -44,7 +44,7 @@ The project includes a **React frontend** for user interaction and a **Django ba
 ### 1️⃣ Backend Deploying
 
 Backend runs at:
-👉 `https://react-project-jbmu.onrender.com/`
+👉 [https://react-project-jbmu.onrender.com/api/tours/](https://react-project-jbmu.onrender.com/api/tours/)
 
 **(Please wait until API loads, it takes ~2-3 minutes 🥹)**
 
