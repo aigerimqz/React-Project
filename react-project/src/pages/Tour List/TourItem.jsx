@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "../../context/AuthContext";
 import { addFavorite, removeFavorite } from "../../features/favorites/favoritesSlice";
 import { getLocalFavorites, setLocalFavorites } from "../../services/favoritesService";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 export default function TourItem({ tour, actionType = "favorite" }) {
 
   const dispatch = useDispatch();
@@ -18,10 +18,12 @@ export default function TourItem({ tour, actionType = "favorite" }) {
     setLocalFavs(getLocalFavorites());
   }, [favorites]);
 
-  const isFavorite = user ? favorites.some(fav => fav.id === tour.id) : localFavs.some(fav => fav.id === tour.id);
 
+  const isFavorite = useMemo(() => {
+    return user ? favorites.some(fav => fav.id === tour.id) : localFavs.some(fav => fav.id === tour.id);
+  }, [user, favorites, localFavs, tour.id]);
 
-  const handleFavorite = () => {
+  const handleFavorite = useCallback(() => {
     if(user) {
       if (isFavorite) {
         dispatch(removeFavorite({uid: user.uid, tourId: tour.id}));
@@ -40,7 +42,7 @@ export default function TourItem({ tour, actionType = "favorite" }) {
       alert("Favorites saved locally!");
     }
     
-  }
+  }, [user, isFavorite, localFavs, tour, dispatch]);
 
   return (
     <div className="tour__card">
