@@ -79,3 +79,52 @@
     margin-top: 10px;
 
 }
+
+
+
+.tour__list button {
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(162, 224, 206);
+  color: #373737;
+  margin: 0 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tour__list button:hover:not(:disabled) {
+  transform: scale(1.05);
+  cursor: pointer;
+  background-color: rgb(140, 200, 185);
+}
+
+.tour__list button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+.filters select {
+  padding: 12px 15px;
+  border-radius: 30px;
+  border: 1px solid rgb(132, 132, 132);
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  margin: 0 10px 20px 0;
+  min-width: 180px;
+  transition: border-color 0.3s ease;
+}
+
+.filters select:hover {
+  border-color: rgb(100, 180, 160);
+}
+
+
+.search__input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}

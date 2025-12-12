@@ -6,8 +6,10 @@ import { useSearchParams } from "react-router-dom";
 import { searchItems } from "../../services/itemService";
 import { fetchItems } from "../../features/items/itemsSlice";
 import { useDebounce } from "../../hooks/useDebounce";
+import { useI18n } from "../../context/I18nContext";
+import Loader from "../../components/Loader/Loader";
 export default function TourList() {
-   
+    const { t } = useI18n();
     const dispatch = useDispatch();
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -87,41 +89,33 @@ export default function TourList() {
     }
 
 
-    // useEffect(() => {
-    //     const delayDebounce = setTimeout(() => {
-    //         load(filterQuery);
-    //     }, 400);
-    //     return () => clearTimeout(delayDebounce);
-    // }, [filterQuery]);
-    // const filteredItems = items.filter((item) =>
-    //     item.name.toLowerCase().includes(filterQuery.toLowerCase())
-    // );
+
     return (
         
 
 
 
         <div className="tour__list">
-            <h2 className="list__title">Tours</h2>
+            <h2 className="list__title">{t("tours_page.title")}</h2>
 
             <button onClick={() => goToPage(Math.max(currentPage - 1, 1))}
                 disabled={!previous}>
-                Previous
+                {t("tours_page.previous_btn")}
                 </button>
 
                 <button
                 onClick={() => goToPage(currentPage + 1)}disabled={!next}>
-                Next
+                {t("tours_page.next_btn")}
             </button>
 
 
          
             <div className="search__bar">
                 <input type="text" className="search__input" 
-                placeholder="Search tours..."
+                placeholder={t("tours_page.search_placeholder")}
                 value={filterQuery}
                 onChange={handleSearch} />
-                <button className="clear__btn" onClick={clearFilters}>Clear</button>
+                <button className="clear__btn" onClick={clearFilters}>{t("tours_page.clear_btn")}</button>
             </div>
             <div className="filters">
                 <select
@@ -133,15 +127,15 @@ export default function TourList() {
                             category: e.target.value,
                             continent: selectedContinent,
                         });}}>
-                    <option value="">All Categories</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="family-friendly">Family Friendly</option>
-                    <option value="cultural">Cultural</option>
-                    <option value="nature-wildlife">Nature & Wildlife</option>
-                    <option value="relax-spa">Relaxation / Spa</option>
-                    <option value="beach-water">Beach / Water</option>
-                    <option value="city-sightseeing">City Tours / Sightseeing</option>
-                    <option value="extreme-sports">Extreme / Sports</option>
+                    <option value="">{t("tours_page.filters.all_categories")}</option>
+                    <option value="adventure">{t("tours_page.filters.adventure")}</option>
+                    <option value="family-friendly">{t("tours_page.filters.family_friendly")}</option>
+                    <option value="cultural">{t("tours_page.filters.cultural")}</option>
+                    <option value="nature-wildlife">{t("tours_page.filters.nature_wildlife")}</option>
+                    <option value="relax-spa">{t("tours_page.filters.relax_spa")}</option>
+                    <option value="beach-water">{t("tours_page.filters.beach_water")}</option>
+                    <option value="city-sightseeing">{t("tours_page.filters.city_sightseeing")}</option>
+                    <option value="extreme-sports">{t("tours_page.filters.extreme_sports")}</option>
                 </select>
 
                 <select
@@ -153,19 +147,19 @@ export default function TourList() {
                             category: selectedCategory,
                             continent: e.target.value,
                         });}}>
-                    <option value="">All Continents</option>
-                    <option value="asia">Asia</option>
-                    <option value="europe">Europe</option>
-                    <option value="africa">Africa</option>
-                    <option value="north-america">North America</option>
-                    <option value="south-america">South America</option>
+                    <option value="">{t("tours_page.filters.all_categories")}</option>
+                    <option value="asia">{t("tours_page.filters.asia")}</option>
+                    <option value="europe">{t("tours_page.filters.europe")}</option>
+                    <option value="africa">{t("tours_page.filters.africa")}</option>
+                    <option value="north-america">{t("tours_page.filters.north_america")}</option>
+                    <option value="south-america">{t("tours_page.filters.south_america")}</option>
                 </select>
             </div>
 
 
 
             {loadingList ? (
-                <p className="loading">Loading tours...</p>
+                <Loader></Loader>
             ):
             list.length ? (
                 <ul className="tour__items">
@@ -174,7 +168,7 @@ export default function TourList() {
                     ))}
                 </ul>
             ) : (
-                <p>No matching tours</p>
+                <p>{t("tours_page.no_results")}</p>
             )}
         </div>
     );

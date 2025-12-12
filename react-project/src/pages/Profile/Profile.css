@@ -25,4 +25,5 @@
     border-radius: 50%;    
     object-fit: cover;      
     margin-bottom: 15px;
+    border: 1px solid #999999;
 }

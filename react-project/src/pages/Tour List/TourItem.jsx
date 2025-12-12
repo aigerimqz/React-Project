@@ -58,12 +58,12 @@ export default function TourItem({ tour, actionType = "favorite" }) {
         </Link>
         {actionType === "favorite" && (
           <button className="fav__btn" onClick={handleFavorite}>
-            {isFavorite ? "❤️" : "🤍"}
+            {isFavorite ? <img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/2589/2589197.png"/>}
           </button>
         )}
         { actionType === "remove" && (
           <button className="fav__btn" onClick={() => dispatch(removeFavorite({uid: user.uid, tourId: tour.id}))}>
-            ❌
+            <img src="https://cdn-icons-png.flaticon.com/512/2961/2961937.png" alt="" />
           </button>
         )}
         

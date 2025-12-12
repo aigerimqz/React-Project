@@ -27,7 +27,36 @@
         "link": "Подробнее →"
       }
     }
+  },
+  
+  "tours_page": {
+    "title": "Туры",
+    "search_placeholder": "Поиск туров...",
+    "clear_btn": "Очистить",
+    "previous_btn": "Назад",
+    "next_btn": "Вперед",
+    "filters": {
+      "all_categories": "Все категории",
+      "adventure": "Приключения",
+      "family_friendly": "Для всей семьи",
+      "cultural": "Культурные",
+      "nature_wildlife": "Природа и животные",
+      "relax_spa": "Отдых / SPA",
+      "beach_water": "Пляж / Вода",
+      "city_sightseeing": "Город / Экскурсии",
+      "extreme_sports": "Экстрим / Спорт",
+      "all_continents": "Все континенты",
+      "asia": "Азия",
+      "europe": "Европа",
+      "africa": "Африка",
+      "north_america": "Северная Америка",
+      "south_america": "Южная Америка"
+    },
+    "no_results": "Совпадающих туров нет",
+    "loading": "Загрузка туров..."
   }
+
+
 
 
 }

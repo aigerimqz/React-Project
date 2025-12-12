@@ -9,6 +9,7 @@
   "home_title": "Enjoy your best travel ever",
   "home_text": "At Saiahat, we help you explore the world with ease. Choose from carefully curated tours, plan your next journey, and make memories that last a lifetime.",
   "home_btn": "Learn more",
+
   "about_page": {
     "title": "Why do travelers choose us?",
     "description": "We provide comfortable routes, reliable booking options, and exceptional service — everything you need for the perfect travel experience.",
@@ -26,5 +27,36 @@
         "link": "More details →"
       }
     }
-    }
+  },
+
+  "tours_page": {
+    "title": "Tours",
+    "search_placeholder": "Search tours...",
+    "clear_btn": "Clear",
+    "previous_btn": "Previous",
+    "next_btn": "Next",
+    "filters": {
+      "all_categories": "All Categories",
+      "adventure": "Adventure",
+      "family_friendly": "Family Friendly",
+      "cultural": "Cultural",
+      "nature_wildlife": "Nature & Wildlife",
+      "relax_spa": "Relaxation / Spa",
+      "beach_water": "Beach / Water",
+      "city_sightseeing": "City Tours / Sightseeing",
+      "extreme_sports": "Extreme / Sports",
+      "all_continents": "All Continents",
+      "asia": "Asia",
+      "europe": "Europe",
+      "africa": "Africa",
+      "north_america": "North America",
+      "south_america": "South America"
+    },
+    "no_results": "No matching tours",
+    "loading": "Loading tours..."
+  }
+
+
+    
+  
 }

@@ -4,6 +4,7 @@ import { fetchFavorites, removeFavorite } from "../../features/favorites/favorit
 import { useAuth } from "../../context/AuthContext";
 import TourItem from "../Tour List/TourItem";
 import { getLocalFavorites } from "../../services/favoritesService";
+import Loader from "../../components/Loader/Loader";
 
 export default function FavoriteList() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function FavoriteList() {
   }, [user, dispatch]);
 
   
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader></Loader>;
 
   const resList = user ? list : localList;
 

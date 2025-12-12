@@ -26,7 +26,36 @@
         "link": "Толығырақ →"
       }
     }
+  },
+
+  "tours_page": {
+    "title": "Турлар",
+    "search_placeholder": "Турларды іздеу...",
+    "clear_btn": "Тазалау",
+    "previous_btn": "Артқа",
+    "next_btn": "Алға",
+    "filters": {
+      "all_categories": "Барлық категориялар",
+      "adventure": "Шытырман оқиғалар",
+      "family_friendly": "Отбасы үшін",
+      "cultural": "Мәдени",
+      "nature_wildlife": "Табиғат пен жануарлар",
+      "relax_spa": "Демалыс / SPA",
+      "beach_water": "Жағажай / Су",
+      "city_sightseeing": "Қала / Көрікті жерлер",
+      "extreme_sports": "Экстремалды / Спорт",
+      "all_continents": "Барлық құрлықтар",
+      "asia": "Азия",
+      "europe": "Еуропа",
+      "africa": "Африка",
+      "north_america": "Солтүстік Америка",
+      "south_america": "Оңтүстік Америка"
+    },
+    "no_results": "Сәйкес турлар жоқ",
+    "loading": "Турлар жүктелуде..."
   }
+
+
 
 
 }
