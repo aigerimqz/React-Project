@@ -8,13 +8,17 @@ import TourDetail from './pages/Tour Detail/TourDetail';
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
 import Profile from './pages/Profile/Profile';
+import OfflinePage from './components/OfflinePage/OfflinePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import FavoriteList from './pages/Favorites/FavoritesList';
+import { useOfflineStatus } from './hooks/useOfflineStatus';
 function App() {
   
-  
+  const isOffline = useOfflineStatus();
 
   return (
+    <> {isOffline && <OfflinePage />}
+   
    
       <Routes>
         <Route path="/" element={<Navbar/>}>
@@ -30,6 +34,8 @@ function App() {
 
         </Route>
       </Routes>
+
+    </>
   
   )
 }
