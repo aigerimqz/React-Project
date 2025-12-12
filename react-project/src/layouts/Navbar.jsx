@@ -39,9 +39,9 @@ export default function Navbar() {
         
         </div>
         <div>
-          <button  onClick={() => changeLanguage("en")}>EN</button>
-          <button onClick={() => changeLanguage("ru")}>RU</button>
-          <button onClick={() => changeLanguage("kz")}>KZ</button>
+          <button className="lang__btn" onClick={() => changeLanguage("en")}>EN</button>
+          <button className="lang__btn" onClick={() => changeLanguage("ru")}>RU</button>
+          <button className="lang__btn" onClick={() => changeLanguage("kz")}>KZ</button>
         </div>
 
         

@@ -48,3 +48,13 @@
     max-width: 1350px;
     margin: 20px auto;
 }
+
+.lang__btn{
+    border: none;
+    background: none;
+    font-family: "Montserrat", sans-serif;
+}
+.lang__btn:hover{
+    color:rgb(162, 224, 206);
+    cursor: pointer;
+}

@@ -29,7 +29,7 @@ export default function Login() {
     };
 
     return (
-        <>
+        <div className="login__block">
             <h1 style={{ textAlign: "center" }}>Login</h1>
 
             <form className="login__block" onSubmit={handleLogin}>
@@ -62,6 +62,6 @@ export default function Login() {
                     <Link to="/signup">Sign up</Link>
                 </p>
             </form>
-        </>
+        </div>
     );
 }

@@ -12,7 +12,7 @@ export default function Home(){
         <h1 className="home__title">{t("home_title")}</h1>
         <div className="home__info">
             <p className="home__text">{t("home_text")}</p>
-            <button>{t("home_btn")}</button>
+            <Link to="/about"><button>{t("home_btn")}</button></Link>
         </div>
     
         

@@ -5,13 +5,15 @@ import { useAuth } from "../../context/AuthContext";
 import TourItem from "../Tour List/TourItem";
 import { getLocalFavorites } from "../../services/favoritesService";
 import Loader from "../../components/Loader/Loader";
+import "./FavoritesList.css";
+import { useI18n } from "../../context/I18nContext";
 
 export default function FavoriteList() {
   const dispatch = useDispatch();
   const { user } = useAuth();  
   const { list, loading } = useSelector((state) => state.favorites);
   const [localList, setLocalList] = useState([]);
-
+  const { t } = useI18n();
 
 
   useEffect(() => {
@@ -33,10 +35,18 @@ export default function FavoriteList() {
 
 
   return (
-    <div className="favorites__list">
+    <div className="favorites">
+      <div className="favorites__title">
+        <p>{t("favorites")}</p>
+      </div>
+      <div className="favorites__list">
         {resList.map((tour) => (
             <TourItem key={tour.id} tour={tour} actionType="remove"/>
         ))}
+      </div>
+    
     </div>
+    
+    
   );
 }

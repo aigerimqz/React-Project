@@ -22,6 +22,8 @@ export default function Signup() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {loading, error} = useSelector(state => state.auth);
+    const [localerror, setError] = useState("");
+
 
     const validate = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,7 +56,7 @@ export default function Signup() {
     };
 
     return (
-        <>
+        <div className="login__block">
             <h1 style={{ textAlign: "center" }}>Sign Up</h1>
 
             <form className="login__block">
@@ -102,6 +104,7 @@ export default function Signup() {
                 </div>
 
                 {error && <p className="error">{error}</p>}
+                {localerror && <p>{localerror}</p>}
 
                 <button
                     type="button"
@@ -116,6 +119,6 @@ export default function Signup() {
                     Already have an account? <Link to="/login">Login</Link>
                 </p>
             </form>
-        </>
+        </div>
     );
 }

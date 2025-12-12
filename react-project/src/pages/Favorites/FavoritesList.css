@@ -1,0 +1,11 @@
+.favorites__list{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.favorites__title{
+    font-size: 32px;
+    text-align: center;
+    font-weight: 500;
+}
