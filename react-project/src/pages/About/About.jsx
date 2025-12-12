@@ -6,15 +6,17 @@ import tiktokIcon from "../../assets/icons/tiktok.png"
 import locationIcon from "../../assets/icons/location.png"
 import bookingIcon from "../../assets/icons/booking.png"
 import serviceIcon from "../../assets/icons/service.png"
+import { useI18n } from "../../context/I18nContext"
 export default function About(){
+    const { t } = useI18n();
     return (
     <>
     
    <div className="about__section">
     <div className="left__section">
         <div className="left__text">
-            <h1>Why they choose us?</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sed esse quibusdam</p>
+            <h1>{t("about_page.title")}</h1>
+            <p>{t("about_page.description")}</p>
         </div>
          <div className="contact__section">
         {/* <hr className="contact__line"/> */}
@@ -35,24 +37,24 @@ export default function About(){
         <div className="about__item">
             <img src={locationIcon} alt="" />
             <div className="about__text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sed esse quibusdam</p>
-                <a href="">More detailed →</a>
+                <p>{t("about_page.items.1.text")}</p>
+                {/* <a href="">{t("about_page.items.1.link")}</a> */}
             </div>
             
         </div>
         <div className="about__item">
             <img src={bookingIcon} alt="" />
             <div className="about__text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sed esse quibusdam</p>
-                <a href="">More detailed →</a>
+                <p>{t("about_page.items.2.text")}</p>
+                {/* <a href="">{t("about_page.items.2.link")}</a> */}
             </div>
             
         </div>
         <div className="about__item">
             <img src={serviceIcon} alt="" />
             <div className="about__text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sed esse quibusdam</p>
-                <a href="">More detailed →</a>
+                <p>{t("about_page.items.3.text")}</p>
+                {/* <a href="">{t("about_page.items.3.link")}</a> */}
             </div>
             
         </div>

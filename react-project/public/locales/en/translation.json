@@ -1,0 +1,30 @@
+{
+  "home": "Home",
+  "about": "About Us",
+  "tours": "Tours",
+  "profile": "Profile",
+  "favorites": "Favorites",
+  "login": "Login",
+  "logout": "Logout",
+  "home_title": "Enjoy your best travel ever",
+  "home_text": "At Saiahat, we help you explore the world with ease. Choose from carefully curated tours, plan your next journey, and make memories that last a lifetime.",
+  "home_btn": "Learn more",
+  "about_page": {
+    "title": "Why do travelers choose us?",
+    "description": "We provide comfortable routes, reliable booking options, and exceptional service — everything you need for the perfect travel experience.",
+    "items": {
+      "1": {
+        "text": "We help you explore the best destinations with carefully designed routes and trusted guidance.",
+        "link": "More details →"
+      },
+      "2": {
+        "text": "Easy and fast booking — plan your trip in just a few clicks.",
+        "link": "More details →"
+      },
+      "3": {
+        "text": "High-quality service and full support during your entire journey.",
+        "link": "More details →"
+      }
+    }
+    }
+}
