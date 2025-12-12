@@ -23,7 +23,11 @@ export default function Navbar() {
               <button onClick={logoutUser} className="login__btn">Logout</button>
             </>
           ): (
+            <>
+              <Link className="nav__item" to="/favorites">Favorites</Link>
               <Link className="login__link" to="/login"> <button className="login__btn">Login</button></Link>
+            </>
+              
           )}
         
         </div>

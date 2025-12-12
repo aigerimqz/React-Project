@@ -3,23 +3,43 @@ import "./TourItem.css"
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "../../context/AuthContext";
 import { addFavorite, removeFavorite } from "../../features/favorites/favoritesSlice";
+import { getLocalFavorites, setLocalFavorites } from "../../services/favoritesService";
+import { useEffect, useState } from "react";
 export default function TourItem({ tour, actionType = "favorite" }) {
 
   const dispatch = useDispatch();
   const {user} = useAuth();
   const favorites = useSelector(state => state.favorites.list);
 
-  const isFavorite = favorites.some(fav => fav.id === tour.id);
+
+  const [localFavs, setLocalFavs] = useState(getLocalFavorites() || []);
+
+  useEffect(() => {
+    setLocalFavs(getLocalFavorites());
+  }, [favorites]);
+
+  const isFavorite = user ? favorites.some(fav => fav.id === tour.id) : localFavs.some(fav => fav.id === tour.id);
 
 
   const handleFavorite = () => {
-    if(!user) return alert("Please login to add favorites");
-    if(isFavorite){
-      dispatch(removeFavorite({uid: user.uid, tourId: tour.id}));
-
+    if(user) {
+      if (isFavorite) {
+        dispatch(removeFavorite({uid: user.uid, tourId: tour.id}));
+      }else{
+        dispatch(addFavorite({uid: user.uid, tour}));
+      }
     }else{
-      dispatch(addFavorite({uid:user.uid, tour}));
+      let updatedFavs = [...localFavs];
+      if(isFavorite) {
+        updatedFavs = updatedFavs.filter(fav => fav.id !== tour.id);
+      }else{
+        updatedFavs.push(tour);
+      }
+      setLocalFavorites(updatedFavs);
+      setLocalFavs(updatedFavs);
+      alert("Favorites saved locally!");
     }
+    
   }
 
   return (

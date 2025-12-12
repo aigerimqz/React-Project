@@ -18,23 +18,29 @@ export const fetchFavorites = createAsyncThunk(
 export const addFavorite = createAsyncThunk(
   "favorites/addFavorite",
   async ({ uid, tour }) => {
-    await favoritesService.addFavorite(uid, tour);
-    return tour;
+    return await favoritesService.addFavorite(uid, tour);
+    
   }
 );
 
 export const removeFavorite = createAsyncThunk(
   "favorites/removeFavorite",
   async ({ uid, tourId }) => {
-    await favoritesService.removeFavorite(uid, tourId);
-    return tourId;
+    return await favoritesService.removeFavorite(uid, tourId);
+   
   }
 );
 
 const favoritesSlice = createSlice({
   name: "favorites",
   initialState,
-  reducers: {},
+  reducers: {
+    mergeLocalFavorites: (state, action) => {
+      const validItems = action.payload.filter(f => f && f.id);
+      state.list = Array.from(new Map([...state.list.map(f => [f.id, f]), ...validItems.map(f => [f.id, f])]).values());
+    }
+
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchFavorites.pending, (state) => {
@@ -50,7 +56,9 @@ const favoritesSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addFavorite.fulfilled, (state, action) => {
-        state.list.push(action.payload);
+        if (!state.list.find(f => f.id === action.payload.id)) {
+          state.list.push(action.payload);
+        }
       })
       .addCase(removeFavorite.fulfilled, (state, action) => {
         state.list = state.list.filter(item => item.id !== action.payload);
@@ -58,4 +66,6 @@ const favoritesSlice = createSlice({
   },
 });
 
+
+export const {mergeLocalFavorites} = favoritesSlice.actions;
 export default favoritesSlice.reducer;
