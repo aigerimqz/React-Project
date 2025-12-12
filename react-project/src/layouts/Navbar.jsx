@@ -2,6 +2,8 @@ import { Outlet, Link } from "react-router-dom";
 import "../layouts/Navbar.css";
 import { useAuth } from "../context/AuthContext";
 import { logoutUser } from "../services/authService";
+import ProfilePictureUpdater from "../components/ProfilePictureUpdater";
+
 export default function Navbar() {
 
   const {user} = useAuth();
@@ -18,6 +20,7 @@ export default function Navbar() {
         <div className="login__bar">
           {user ? (
             <>
+              
               <Link className="nav__item" to="/favorites">Favorites</Link>
               <Link className="nav__item" to="/profile">Profile</Link>
               <button onClick={logoutUser} className="login__btn">Logout</button>
